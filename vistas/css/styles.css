@@ -46,6 +46,27 @@ h4 {
     margin: 0 auto;
     padding: 0;
 }
+.btn-header {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.4rem;
+    background-color: #00000000;
+    border-style: none;
+    color: white;
+    border-width: 0;
+    border-color: #00000000;
+    text-rendering: unset;
+}
+.btn-header:hover {
+    text-decoration: underline;
+}
+.p-header {
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
+    margin: 0 0.7rem;
+}
+
 /** Utilidades**/
 .fw-300 {
     font-weight: 300;
@@ -69,6 +90,12 @@ h4 {
 
 .contenido-centrado {
     max-width: 80rem;
+}
+.margin-auto {
+    margin: auto;
+}
+.margin-left {
+    margin-left: auto;
 }
 /* Cards--------------------------------------------------------- */
 .contenedor-tarjeta {
@@ -136,9 +163,34 @@ h4 {
 .boton:hover {
     cursor: pointer;
 }
-
+.back-grey {
+    background-color: #333333;
+}
 .boton-verde {
     background-color: #007700;
+    color: white;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 1.4rem;
+    padding: 0.6rem 1.2rem;
+    border-style: none;
+    border-width: 0;
+    border-color: #00000000;
+    text-rendering: unset;
+}
+.boton-verde-login {
+    font-size: 1.8rem;
+    height: 4rem;
+}
+.a-login {
+    margin-bottom: 2rem;
+    text-decoration: none;
+    color: white;
+}
+.a-login:hover {
+    text-decoration: none;
+    color: white;
+    text-decoration: underline;
 }
 
 .site-header {
@@ -722,6 +774,11 @@ body > main > div > div.imagen > img {
     }
     .barra.contenedor-header {
         align-items: center;
+    }
+}
+@media (min-width: 769px) {
+    #logo {
+        width: 20rem;
     }
 }
 @media (max-width: 480px) {
