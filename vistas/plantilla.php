@@ -84,6 +84,11 @@ session_start();
             $_GET["ruta"] == "nosotros" ||
             $_GET["ruta"] == "pocox3" ||
             $_GET["ruta"] == "rn9s" ||
+            $_GET["ruta"] == "celulares" ||
+            $_GET["ruta"] == "computacion" ||
+            $_GET["ruta"] == "audio" ||
+            $_GET["ruta"] == "televisores" ||
+            $_GET["ruta"] == "gadgets" ||
             /* $_GET["ruta"] == "reporte-ventas" ||
                 $_GET["ruta"] == "sucursales" || */
             $_GET["ruta"] == "salir"
@@ -103,8 +108,11 @@ session_start();
     } */
 
     ?>
+    <!--
+    /*=============================================
+    Formulario login                             
+    =============================================*/  -->
     <div id="modalIngresarUsuario" class="modal fade" role="dialog">
-
         <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
@@ -130,7 +138,7 @@ session_start();
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">
                                     <span class="input-group-addon"><i class="fa fa-key"></i></span>
-                                    <input type="password" class="form-control input-lg" name="nuevoNombre" placeholder="Contraseña" required>
+                                    <input type="password" class="form-control input-lg" name="logPassword" placeholder="Contraseña" required>
                                 </div>
                             </div><!-- Input para el password -->
 
@@ -154,6 +162,63 @@ session_start();
                 </form>
             </div>
 
+        </div>
+    </div>
+    <!--
+    /*=============================================
+    Formulario sing up                             
+    =============================================*/  -->
+    <div id="modalCrearUsuario" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-header" style="background:#007700; color:white">
+                        <button type=" button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title centrar-texto">Crear Cuenta</h4>
+                    </div>
+                    <div class="modal-body back-grey">
+                        <div class="box-body">
+                            <div class="centrar-texto"><a href="inicio" class="imagen-logo"><img id="logo" src="vistas/img/plantilla/logo.png" alt="Logo" /></a>
+                            </div>
+                            <br>
+                            <!-- Input para el correo -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-at"></i></span>
+                                    <input type="email" class="form-control input-lg" name="nuevoEmail" id="nuevoEmail" placeholder="Correo electrónico" required>
+                                </div>
+                            </div><!-- Input para el correo-->
+
+                            <!-- Input para el nombre -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                    <input type="text" class="form-control input-lg" name="nuevoNombre" id="nuevoNombre" placeholder="Nombre Completo" required>
+                                </div>
+                            </div><!-- Input para el nombre-->
+
+                            <!-- Input para el password -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                                    <input type="password" class="form-control input-lg" name="nuevoPassword" placeholder="Contraseña" required>
+                                </div>
+                            </div><!-- Input para el password -->
+
+                            <div class="form-group ">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Crear Cuenta</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    //$crearUsuario = new ControladorUsuarios();
+                    //$crearUsuario->ctrCrearUsuario();
+                    ?>
+                </form>
+            </div>
         </div>
     </div>
 

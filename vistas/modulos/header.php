@@ -25,7 +25,7 @@
                     <button class="btn-header" data-toggle="modal" data-target="#modalIngresarUsuario">
                         Ingresar
                     </button>
-                    <p class="p-header">|</p>
+                    <!-- <p class="p-header">|</p> -->
                     <button class="btn-header" data-toggle="modal" data-target="#modalCrearUsuario">
                         Crear Cuenta
                     </button>
