@@ -31,7 +31,7 @@
     <a href="m51">
         <div class="card">
             <img src="vistas/img/plantilla/m51.jpg" alt="m51" />
-            <h4>Galaxy M51</h4>
+            <h4>Galaxy A51</h4>
             <p class="tarjeta-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing
                 elit. Possimus obcaecati illo nesciunt tempora

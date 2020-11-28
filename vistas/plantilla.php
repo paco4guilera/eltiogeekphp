@@ -89,6 +89,7 @@ session_start();
             $_GET["ruta"] == "audio" ||
             $_GET["ruta"] == "televisores" ||
             $_GET["ruta"] == "gadgets" ||
+            $_GET["ruta"] == "producto" ||
             /* $_GET["ruta"] == "reporte-ventas" ||
                 $_GET["ruta"] == "sucursales" || */
             $_GET["ruta"] == "salir"
@@ -156,8 +157,8 @@ session_start();
                         </div>
                     </div>
                     <?php
-                    //$crearUsuario = new ControladorUsuarios();
-                    //$crearUsuario->ctrCrearUsuario();
+                    $ingresoUsuario = new ControladorUsuarios();
+                    $ingresoUsuario->ctrIngresoUsuario();
                     ?>
                 </form>
             </div>
@@ -214,8 +215,8 @@ session_start();
                         </div>
                     </div>
                     <?php
-                    //$crearUsuario = new ControladorUsuarios();
-                    //$crearUsuario->ctrCrearUsuario();
+                    $crearUsuario = new ControladorUsuarios();
+                    $crearUsuario->ctrCrearUsuario();
                     ?>
                 </form>
             </div>

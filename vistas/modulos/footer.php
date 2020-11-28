@@ -11,5 +11,9 @@
             Todos los derechos reservados &copy; <br />
             elTioGeek@gmail.com
         </p>
+        <!-- <?php
+                echo '<p>' . $_SESSION["correo"] . '</p>';
+                echo '<p>' . $_SESSION["rol"] . '</p>';
+                ?> -->
     </div>
 </footer>
