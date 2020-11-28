@@ -10,25 +10,29 @@
                 </nav>
                 <nav class="flex space-around navegacion" id="navegacion-verde">
                     <?php
-                    /* if ($_SESSION["iniciarSesion"] == "ok") {
+                    if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok") {
                         echo '
-                    <a href="#">Ingresar</a>
-                    <!-- <a > | </a> -->
-                    <a href="#"> Crear cuenta</a>';
+                    <a href="salir" class="btn-header">
+                        ' . $_SESSION["email"] . '
+                    </a>
+                    <a href="salir" class="btn-header">
+                        Carrito
+                    </a>
+                    <a href="salir" class="btn-header">
+                        Salir
+                    </a>
+                    ';
                     } else {
                         echo '
-                    <a href="#">Ingresar</a>
-                    <!-- <a > | </a> -->
-                    <a href="#"> Crear cuenta</a>';
-                    } */
-                    ?>
                     <button class="btn-header" data-toggle="modal" data-target="#modalIngresarUsuario">
                         Ingresar
                     </button>
-                    <!-- <p class="p-header">|</p> -->
                     <button class="btn-header" data-toggle="modal" data-target="#modalCrearUsuario">
                         Crear Cuenta
-                    </button>
+                    </button>';
+                    }
+                    ?>
+
                 </nav>
             </div>
         </div>

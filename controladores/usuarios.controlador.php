@@ -61,7 +61,7 @@ class ControladorUsuarios
     static public function ctrIngresoUsuario()
     {
         if (
-            isset($_POST["logEmil"]) &&
+            isset($_POST["logEmail"]) &&
             isset($_POST["logPassword"])
         ) {
             //$encriptar = crypt($_POST["logPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
@@ -69,6 +69,7 @@ class ControladorUsuarios
             $item = "usuario_correo";
             $valor = $_POST["logEmail"];
             $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
+            var_dump($respuesta["usuario_correo"]);
             if (
                 $respuesta["usuario_correo"] == $_POST["logEmail"] &&
                 //$respuesta["usuario_password"] == $encriptar
@@ -77,10 +78,11 @@ class ControladorUsuarios
                 $_SESSION["iniciarSesion"] = "ok";
                 $_SESSION["email"] = $respuesta["usuario_correo"];
                 $_SESSION["rol"] = $respuesta["usuario_rol"];
+                var_dump($_SESSION);
                 echo '<script>
                     swal.fire({
                         icon:"success",
-                        title: "Usuario ha ingresado con éxito",
+                        title: "Bienvenido",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar",
                         closeOnConfirm: false 
@@ -92,10 +94,11 @@ class ControladorUsuarios
                     </script>';
                 //var_dump($_SESSION);
             } else {
+                $_POST = null;
                 echo '<script>
                     swal.fire({
                         icon:"error",
-                        title: "Usuario no ha ingresado con éxito",
+                        title: "Datos incorrectos",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar",
                         closeOnConfirm: false 

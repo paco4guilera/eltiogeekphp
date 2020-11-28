@@ -153,7 +153,6 @@ session_start();
                                     <a class="a-login" href="#">¿Olvidaste tu contraseña?</a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <?php
