@@ -8,7 +8,7 @@ session_start();
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>El tío geek</title>
-    <link rel="icon" href="img/plantilla/glasses-solid.svg" />
+    <link rel="icon" href="vistas/img/plantilla/glasses-solid.svg" />
 
 
     <!-- Tell the browser to be responsive to screen width -->
@@ -90,6 +90,7 @@ session_start();
             $_GET["ruta"] == "televisores" ||
             $_GET["ruta"] == "gadgets" ||
             $_GET["ruta"] == "producto" ||
+            $_GET["ruta"] == "admin" ||
             /* $_GET["ruta"] == "reporte-ventas" ||
                 $_GET["ruta"] == "sucursales" || */
             $_GET["ruta"] == "salir"
@@ -228,6 +229,7 @@ session_start();
     <script src="vistas/js/clientes.js"></script>
     <script src="vistas/js/mascotas.js"></script>
     <script src="vistas/js/productos.js"></script> -->
+    <script src="vistas/js/productos.js"></script>
 </body>
 
 

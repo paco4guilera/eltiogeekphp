@@ -12,4 +12,12 @@ class ModeloProductos
         return $stmt->fetchAll();
         $stmt = null;
     }
+    static public function mdlMostrarProducto($tabla, $nombre)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE producto_nombre = :producto_nombre");
+        $stmt->bindParam(":producto_nombre", $nombre, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt = null;
+    }
 }

@@ -78,8 +78,22 @@ class ControladorUsuarios
                 $_SESSION["iniciarSesion"] = "ok";
                 $_SESSION["email"] = $respuesta["usuario_correo"];
                 $_SESSION["rol"] = $respuesta["usuario_rol"];
-                var_dump($_SESSION);
-                echo '<script>
+                if ($_SESSION["rol"] == "admin") {
+                    echo '<script>
+                    swal.fire({
+                        icon:"success",
+                        title: "Bienvenido, admin",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false 
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location="admin";
+                        }
+                    });
+                    </script>';
+                } else {
+                    echo '<script>
                     swal.fire({
                         icon:"success",
                         title: "Bienvenido",
@@ -92,7 +106,7 @@ class ControladorUsuarios
                         }
                     });
                     </script>';
-                //var_dump($_SESSION);
+                }
             } else {
                 $_POST = null;
                 echo '<script>
