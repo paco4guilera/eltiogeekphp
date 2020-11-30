@@ -17,6 +17,6 @@
                 <label for="mensaje">Mensaje:</label><br>
                 <textarea class="form-contacto" id="mensaje"></textarea>
             </fieldset>
-            <input type="submit" class="boton boton-verde" />
+            <input type="submit" class="boton boton-verde" id="boton-contacto" />
         </form>
     </main>

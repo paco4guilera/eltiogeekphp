@@ -414,6 +414,18 @@ select {
     border: none;
     border-radius: 1rem;
 }
+.form-contacto legend {
+    margin: 0;
+    padding: 1em 0 0 0;
+    font-size: 2em;
+    text-align: center;
+}
+.form-contacto fieldset label {
+    margin: 0;
+    margin-left: 0.5em;
+    position: relative;
+    top: 1em;
+}
 input[type="radio"] {
     width: auto;
     margin: 0;
@@ -426,8 +438,15 @@ select {
 textarea {
     height: 20rem;
     resize: none;
+    width: 100%;
 }
-
+#mensaje {
+    height: 12em;
+}
+#boton-contacto {
+    display: flex;
+    margin: 0 auto;
+}
 .menu {
     text-align: center;
     margin: 1rem;
