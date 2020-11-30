@@ -89,10 +89,10 @@
                             </div><!-- Input para el rol -->
                             <div class="form-group">
                                 <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
+                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaImagen margin-0" name="nuevaImagen"></div>
                                 <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
                                 <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
                                 <br>
-                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaImagen margin-0" name="nuevaImagen"></div>
                             </div>
 
                             <div class="form-group ">

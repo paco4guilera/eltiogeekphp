@@ -405,6 +405,15 @@ select {
     border: none;
     border-radius: 1rem;
 } */
+.form-contacto {
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    background-color: #e1e1e1;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 1rem;
+}
 input[type="radio"] {
     width: auto;
     margin: 0;
@@ -806,13 +815,27 @@ body > main > div > div.imagen > img {
     padding-left: 10rem;
 }
 
-@media (min-width: 320px){
-    #modalNuevoProducto div div form div.modal-body.back-grey div div:nth-child(7) div.margin-auto.padding-5rem{
+@media (min-width: 320px) {
+    #modalNuevoProducto
+        div
+        div
+        form
+        div.modal-body.back-grey
+        div
+        div:nth-child(7)
+        div.margin-auto.padding-5rem {
         padding: 0 100px;
     }
-    #modalNuevoProducto > div > div > form > div.modal-body.back-grey > div > div:nth-child(7) > div.margin-auto.padding-5rem > input[type=file]{
+    #modalNuevoProducto
+        > div
+        > div
+        > form
+        > div.modal-body.back-grey
+        > div
+        > div:nth-child(7)
+        > div.margin-auto.padding-5rem
+        > input[type="file"] {
         margin: 0 auto;
         width: 112.9px;
     }
-    
 }

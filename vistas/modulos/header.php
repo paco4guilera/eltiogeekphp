@@ -13,9 +13,6 @@
                     if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok" && $_SESSION["rol"] == "cliente") {
                         echo '
                     <a href="salir" class="btn-header">
-                        ' . $_SESSION["email"] . '
-                    </a>
-                    <a href="salir" class="btn-header">
                         Carrito
                     </a>
                     <a href="salir" class="btn-header">
@@ -24,9 +21,6 @@
                     ';
                     } elseif (isset($_SESSION["rol"]) && $_SESSION["rol"] == "admin") {
                         echo '
-                    <a href="salir" class="btn-header">
-                        ' . $_SESSION["email"] . '
-                    </a>
                     <a href="admin" class="btn-header">
                         Administrar
                     </a>
