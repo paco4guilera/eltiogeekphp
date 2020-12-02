@@ -70,14 +70,14 @@
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">
                                     <span class="input-group-addon"><i class="fas fa-file-alt"></i></span>
-                                    <textarea class="form-control input-lg" name="logPassword" placeholder="Descripción" required></textarea>
+                                    <textarea class="form-control input-lg" name="nuevaDescripcion" placeholder="Descripción" required></textarea>
                                 </div>
                             </div><!-- Input para el descripción -->
                             <!-- Input para el tipo -->
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto ">
                                     <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                                    <select class="form-control input-lg no-line-height" name="nuevoTipo">
+                                    <select class="form-control input-lg no-line-height" name="nuevaCategoria">
                                         <option value="">Categoria</option>
                                         <option value="Celulares">Celulares</option>
                                         <option value="Computacion">Computacion</option>
@@ -89,7 +89,7 @@
                             </div><!-- Input para el rol -->
                             <div class="form-group">
                                 <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
-                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaImagen margin-0" name="nuevaImagen"></div>
+                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaFoto margin-0" name="nuevaFoto"></div>
                                 <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
                                 <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
                                 <br>
@@ -103,8 +103,8 @@
                         </div>
                     </div>
                     <?php
-                    $ingresoUsuario = new ControladorUsuarios();
-                    $ingresoUsuario->ctrIngresoUsuario();
+                    $nuevoProducto = new ControladorProductos();
+                    $nuevoProducto->ctrNuevoProducto();
                     ?>
                 </form>
             </div>
