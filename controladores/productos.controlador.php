@@ -60,9 +60,9 @@ class ControladorProductos
     }
     static public function ctrEliminarProducto()
     {
-        if (isset($_POST["editarId"])) {
+        if (isset($_POST["eliminarId"])) {
             $tabla = "productos";
-            $datos = $_POST["editarId"];
+            $datos = $_POST["eliminarId"];
             $foto = ModeloProductos::mdlFotoProducto($tabla, $datos);
             $nombre = ModeloProductos::mdlNombreProducto($tabla, $datos);
             $respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);

@@ -252,7 +252,7 @@
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="modal-header" style="background:#007700; color:white">
                         <button type=" button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title centrar-texto">Editar Producto</h4>
+                        <h4 class="modal-title centrar-texto">Eliminar Producto</h4>
                     </div>
                     <div class="modal-body back-grey">
                         <div class="box-body">
@@ -262,7 +262,7 @@
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">
                                     <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
-                                    <input type="number" class="form-control input-lg quitar-color" name="editarId" id="editarId" placeholder="Id del producto" required>
+                                    <input type="number" class="form-control input-lg quitar-color" name="eliminarId" id="eliminarId" placeholder="Id del producto" required>
                                 </div>
                             </div>
                             <!-- Input para Id del producto-->
