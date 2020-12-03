@@ -12,6 +12,13 @@ class ModeloProductos
         return $stmt->fetchAll();
         $stmt = null;
     }
+    static public function mdlMostrarProductosTabla($tabla)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY producto_categoria");
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
     static public function mdlMostrarProducto($tabla, $nombre)
     {
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE producto_nombre = :producto_nombre");

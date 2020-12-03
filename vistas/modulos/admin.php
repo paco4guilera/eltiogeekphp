@@ -10,9 +10,6 @@
         <br>
         <br>
         <div class="menu-categorias contenedor">
-            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalIngresarUsuario">
-                <p class="menu-categorias-p">Productos</p>
-            </button>
             <button class="menu-categorias-div" data-toggle="modal" data-target="#modalNuevoProducto">
                 <p class="menu-categorias-p">Nuevo Producto</p>
             </button>
@@ -22,9 +19,49 @@
             <button class="menu-categorias-div" data-toggle="modal" data-target="#modalIngresarUsuario">
                 <p class="menu-categorias-p">Eliminar Producto</p>
             </button>
-
-
         </div>
+        <br>
+        <div class="box-body">
+            <!-- <table class="table table-bordered table-striped tablas"> -->
+            <table class="table table-bordered table-condensed  table-hover dt-responsive tabla-plugin">
+                <thead>
+                    <tr>
+                        <th style="width: 10px;">ID</th>
+                        <th>Nombre</th>
+                        <th style="width: 600px;">Descripción</th>
+                        <th>Categoria</th>
+                        <th>Foto</th>
+                        <th style="width: 80px;">Inventario</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $productos = ControladorProductos::ctrMostrarProductosTabla();
+                    foreach ($productos as $key => $value) {
+                        echo '
+                        <tr>
+                            <td>' . $value["producto_id"] . '</td>
+                            <td>' . $value["producto_nombre"] . '</td>
+                            <td>' . $value["producto_descripcion"] . '</td>
+                            <td>' . $value["producto_categoria"] . '</td>';
+                        if ($value["producto_foto"] != "") {
+                            echo '<td><img src="' . $value["producto_foto"] . '" alt="foto" 
+                                    width="40px"></td>';
+                        } else {
+                            echo '<td><img src="vistas/img/productos/default/anonymous.png" alt="foto" 
+                                    width="60px"></td>';
+                        }
+                        echo '
+                        <td>' . $value["inventario"] . '</td>
+                        <td>$ ' . $value["precio"] . '</td>
+                        </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
     </div>
     <br>
     <br>

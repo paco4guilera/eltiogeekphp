@@ -11,6 +11,12 @@ class ControladorProductos
         $respuesta = ModeloProductos::MdlMostrarProductos($tabla, $categoria);
         return $respuesta;
     }
+    static public function ctrMostrarProductosTabla()
+    {
+        $tabla = "productos";
+        $respuesta = ModeloProductos::MdlMostrarProductosTabla($tabla);
+        return $respuesta;
+    }
     static public function ctrNuevoProducto()
     {
         if (isset($_POST["nuevoProducto"])) {
@@ -43,7 +49,7 @@ class ControladorProductos
             $datos = array(
                 "producto" => $_POST["nuevoProducto"],
                 "precio" => $_POST["nuevoPrecio"],
-                "inventaro" => $_POST["nuevoInventario"],
+                "inventario" => $_POST["nuevoInventario"],
                 "descripcion" => $_POST["nuevaDescripcion"],
                 "categoria" => $_POST["nuevaCategoria"],
                 "foto" => $ruta
