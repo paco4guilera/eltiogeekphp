@@ -13,10 +13,10 @@
             <button class="menu-categorias-div" data-toggle="modal" data-target="#modalNuevoProducto">
                 <p class="menu-categorias-p">Nuevo Producto</p>
             </button>
-            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalIngresarUsuario">
+            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalEditarProducto">
                 <p class="menu-categorias-p">Editar producto</p>
             </button>
-            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalIngresarUsuario">
+            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalEliminarProducto">
                 <p class="menu-categorias-p">Eliminar Producto</p>
             </button>
         </div>
@@ -145,6 +145,140 @@
                     ?>
                 </form>
             </div>
+        </div>
+    </div>
+    <!--
+    /*=============================================
+    Formulario Editar producto
+    =============================================*/ -->
+    <div id="modalEditarProducto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-header" style="background:#007700; color:white">
+                        <button type=" button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title centrar-texto">Editar Producto</h4>
+                    </div>
+                    <div class="modal-body back-grey">
+                        <div class="box-body">
+                            <br>
 
+                            <!-- Input para Id del producto -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarId" id="editarId" placeholder="Id del producto" required>
+                                </div>
+                            </div><!-- Input para Id del producto-->
+
+                            <!-- Input para Nombre del producto --
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="text" class="form-control input-lg quitar-color" name="editarProducto" id="editarProducto" placeholder="Nombre del producto" required>
+                                </div>
+                            </div><!-- Input para Nombre del producto-->
+
+                            <!-- Input para el precio -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarPrecio" id="editarPrecio" placeholder="Precio" required>
+                                </div><!-- Input para el precio -->
+
+                            </div><!-- Input para el Inventario-->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarInventario" id="editarInventario" placeholder="Inventario" required>
+                                </div>
+                            </div><!-- Input para el Inventario-->
+
+                            <!-- Input para el descripción --
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fas fa-file-alt"></i></span>
+                                    <textarea class="form-control input-lg" name="editarDescripcion" placeholder="Descripción" required></textarea>
+                                </div>
+                            </div><!-- Input para el descripción -->
+
+                            <!-- <!-- Input para el tipo 
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto ">
+                                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                                    <select class="form-control input-lg no-line-height" name="nuevaCategoria">
+                                        <option value="">Categoria</option>
+                                        <option value="Celulares">Celulares</option>
+                                        <option value="Computacion">Computacion</option>
+                                        <option value="Audio">Audio</option>
+                                        <option value="Televisores">Televisores</option>
+                                        <option value="Gadgets">Gadgets</option>
+                                    </select>
+                                </div>
+                            </div><!-- Input para el tipo -->
+
+                            <!-- <div class="form-group">
+                                <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
+                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaFoto margin-0" name="editarFoto"></div>
+                                <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
+                                <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
+                                <br>
+                            </div> -->
+
+                            <div class="form-group ">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $editarProducto = new ControladorProductos();
+                    $editarProducto->ctrEditarProducto();
+                    ?>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--
+    /*=============================================
+    Formulario Eliminar producto
+    =============================================*/ -->
+    <div id="modalEliminarProducto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-header" style="background:#007700; color:white">
+                        <button type=" button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title centrar-texto">Editar Producto</h4>
+                    </div>
+                    <div class="modal-body back-grey">
+                        <div class="box-body">
+                            <br>
+
+                            <!-- Input para Id del producto -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarId" id="editarId" placeholder="Id del producto" required>
+                                </div>
+                            </div>
+                            <!-- Input para Id del producto-->
+
+                            <div class="form-group ">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $eliminarProducto = new ControladorProductos();
+                    $eliminarProducto->ctrEliminarProducto();
+                    ?>
+                </form>
+            </div>
         </div>
     </div>

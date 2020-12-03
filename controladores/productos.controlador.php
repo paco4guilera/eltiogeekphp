@@ -17,6 +17,89 @@ class ControladorProductos
         $respuesta = ModeloProductos::MdlMostrarProductosTabla($tabla);
         return $respuesta;
     }
+    static public function ctrEditarProducto()
+    {
+        if (isset($_POST["editarId"])) {
+            $tabla = "productos";
+            $datos = array(
+                "id" => $_POST["editarId"],
+                "precio" => $_POST["editarPrecio"],
+                "inventario" => $_POST["editarInventario"],
+            );
+            $respuesta = ModeloProductos::mdlEditarProducto($tabla, $datos);
+            if ($respuesta == "ok") {
+                echo '<script>
+                    swal.fire({
+                        icon:"success",
+                        title: "Producto modificado con éxito",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false 
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location="admin";
+                        }
+                    });
+                    </script>';
+            } else {
+                echo '<script>
+                    swal.fire({
+                        icon:"error",
+                        title: "Producto no modificado con éxito",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false 
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location="admin";
+                        }
+                    });
+                    </script>';
+            }
+        }
+    }
+    static public function ctrEliminarProducto()
+    {
+        if (isset($_POST["editarId"])) {
+            $tabla = "productos";
+            $datos = $_POST["editarId"];
+            $foto = ModeloProductos::mdlFotoProducto($tabla, $datos);
+            $nombre = ModeloProductos::mdlNombreProducto($tabla, $datos);
+            $respuesta = ModeloProductos::mdlEliminarProducto($tabla, $datos);
+            if ($respuesta == "ok") {
+                unlink($foto["producto_foto"]);
+                rmdir('vistas/img/productos/' . $nombre["producto_nombre"]);
+
+                echo '<script>
+                    swal.fire({
+                        icon:"success",
+                        title: "Producto eliminado con éxito",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false 
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location="admin";
+                        }
+                    });
+                    </script>';
+            } else {
+                echo '<script>
+                    swal.fire({
+                        icon:"error",
+                        title: "Producto no eliminado con éxito",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar",
+                        closeOnConfirm: false 
+                    }).then((result)=>{
+                        if(result.value){
+                            window.location="admin";
+                        }
+                    });
+                    </script>';
+            }
+        }
+    }
     static public function ctrNuevoProducto()
     {
         if (isset($_POST["nuevoProducto"])) {
