@@ -4,7 +4,7 @@
 <div class="contenedor-tarjeta">
     <a href="pocox3">
         <div class="card">
-            <img src="vistas/img/plantilla/pocox3.jpg" alt="poco x3" />
+            <img src="vistas/img/productos/Poco X3 NFC/pocox3.jpg" alt="poco x3" />
             <h4>Poco X3 NFC</h4>
             <p class="tarjeta-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing
@@ -17,7 +17,7 @@
     </a>
     <a href="rn9s">
         <div class="card">
-            <img src="vistas/img/plantilla/rn9s.jpg" alt="rn9s" />
+            <img src="vistas/img/productos/Redmi note 9S/rn9s.jpg" alt="rn9s" />
             <h4>Redmi note 9S</h4>
             <p class="tarjeta-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing
@@ -30,7 +30,7 @@
     </a>
     <a href="m51">
         <div class="card">
-            <img src="vistas/img/plantilla/m51.jpg" alt="m51" />
+            <img src="vistas/img/productos/Galaxy A51/m51.jpg" alt="m51" />
             <h4>Galaxy A51</h4>
             <p class="tarjeta-desc">
                 Lorem ipsum dolor sit amet consectetur adipisicing

@@ -10,9 +10,6 @@
         <br>
         <br>
         <div class="menu-categorias contenedor">
-            <button class="menu-categorias-div" data-toggle="modal" data-target="#modalIngresarUsuario">
-                <p class="menu-categorias-p">Productos</p>
-            </button>
             <button class="menu-categorias-div" data-toggle="modal" data-target="#modalNuevoProducto">
                 <p class="menu-categorias-p">Nuevo Producto</p>
             </button>
@@ -22,9 +19,49 @@
             <button class="menu-categorias-div" data-toggle="modal" data-target="#modalEliminarProducto">
                 <p class="menu-categorias-p">Eliminar Producto</p>
             </button>
-
-
         </div>
+        <br>
+        <div class="box-body">
+            <!-- <table class="table table-bordered table-striped tablas"> -->
+            <table class="table table-bordered table-condensed  table-hover dt-responsive tabla-plugin">
+                <thead>
+                    <tr>
+                        <th style="width: 10px;">ID</th>
+                        <th>Nombre</th>
+                        <th style="width: 600px;">Descripción</th>
+                        <th>Categoria</th>
+                        <th>Foto</th>
+                        <th style="width: 80px;">Inventario</th>
+                        <th>Precio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $productos = ControladorProductos::ctrMostrarProductosTabla();
+                    foreach ($productos as $key => $value) {
+                        echo '
+                        <tr>
+                            <td>' . $value["producto_id"] . '</td>
+                            <td>' . $value["producto_nombre"] . '</td>
+                            <td>' . $value["producto_descripcion"] . '</td>
+                            <td>' . $value["producto_categoria"] . '</td>';
+                        if ($value["producto_foto"] != "") {
+                            echo '<td><img src="' . $value["producto_foto"] . '" alt="foto" 
+                                    width="40px"></td>';
+                        } else {
+                            echo '<td><img src="vistas/img/productos/default/anonymous.png" alt="foto" 
+                                    width="60px"></td>';
+                        }
+                        echo '
+                        <td>' . $value["inventario"] . '</td>
+                        <td>$ ' . $value["precio"] . '</td>
+                        </tr>';
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
     </div>
     <br>
     <br>
@@ -70,14 +107,14 @@
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">
                                     <span class="input-group-addon"><i class="fas fa-file-alt"></i></span>
-                                    <textarea class="form-control input-lg" name="logPassword" placeholder="Descripción" required></textarea>
+                                    <textarea class="form-control input-lg" name="nuevaDescripcion" placeholder="Descripción" required></textarea>
                                 </div>
                             </div><!-- Input para el descripción -->
                             <!-- Input para el tipo -->
                             <div class="form-group">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto ">
                                     <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                                    <select class="form-control input-lg no-line-height" name="nuevoTipo">
+                                    <select class="form-control input-lg no-line-height" name="nuevaCategoria">
                                         <option value="">Categoria</option>
                                         <option value="Celulares">Celulares</option>
                                         <option value="Computacion">Computacion</option>
@@ -89,7 +126,7 @@
                             </div><!-- Input para el rol -->
                             <div class="form-group">
                                 <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
-                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaImagen margin-0" name="nuevaImagen"></div>
+                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaFoto margin-0" name="nuevaFoto"></div>
                                 <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
                                 <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
                                 <br>
@@ -103,12 +140,146 @@
                         </div>
                     </div>
                     <?php
-                    $ingresoUsuario = new ControladorUsuarios();
-                    $ingresoUsuario->ctrIngresoUsuario();
+                    $nuevoProducto = new ControladorProductos();
+                    $nuevoProducto->ctrNuevoProducto();
                     ?>
                 </form>
             </div>
+        </div>
+    </div>
+    <!--
+    /*=============================================
+    Formulario Editar producto
+    =============================================*/ -->
+    <div id="modalEditarProducto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-header" style="background:#007700; color:white">
+                        <button type=" button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title centrar-texto">Editar Producto</h4>
+                    </div>
+                    <div class="modal-body back-grey">
+                        <div class="box-body">
+                            <br>
 
+                            <!-- Input para Id del producto -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarId" id="editarId" placeholder="Id del producto" required>
+                                </div>
+                            </div><!-- Input para Id del producto-->
+
+                            <!-- Input para Nombre del producto --
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="text" class="form-control input-lg quitar-color" name="editarProducto" id="editarProducto" placeholder="Nombre del producto" required>
+                                </div>
+                            </div><!-- Input para Nombre del producto-->
+
+                            <!-- Input para el precio -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fas fa-dollar-sign"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarPrecio" id="editarPrecio" placeholder="Precio" required>
+                                </div><!-- Input para el precio -->
+
+                            </div><!-- Input para el Inventario-->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-check"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="editarInventario" id="editarInventario" placeholder="Inventario" required>
+                                </div>
+                            </div><!-- Input para el Inventario-->
+
+                            <!-- Input para el descripción --
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fas fa-file-alt"></i></span>
+                                    <textarea class="form-control input-lg" name="editarDescripcion" placeholder="Descripción" required></textarea>
+                                </div>
+                            </div><!-- Input para el descripción -->
+
+                            <!-- <!-- Input para el tipo 
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto ">
+                                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
+                                    <select class="form-control input-lg no-line-height" name="nuevaCategoria">
+                                        <option value="">Categoria</option>
+                                        <option value="Celulares">Celulares</option>
+                                        <option value="Computacion">Computacion</option>
+                                        <option value="Audio">Audio</option>
+                                        <option value="Televisores">Televisores</option>
+                                        <option value="Gadgets">Gadgets</option>
+                                    </select>
+                                </div>
+                            </div><!-- Input para el tipo -->
+
+                            <!-- <div class="form-group">
+                                <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
+                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaFoto margin-0" name="editarFoto"></div>
+                                <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
+                                <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
+                                <br>
+                            </div> -->
+
+                            <div class="form-group ">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Guardar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $editarProducto = new ControladorProductos();
+                    $editarProducto->ctrEditarProducto();
+                    ?>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--
+    /*=============================================
+    Formulario Eliminar producto
+    =============================================*/ -->
+    <div id="modalEliminarProducto" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <form role="form" method="post" enctype="multipart/form-data">
+                    <div class="modal-header" style="background:#007700; color:white">
+                        <button type=" button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title centrar-texto">Eliminar Producto</h4>
+                    </div>
+                    <div class="modal-body back-grey">
+                        <div class="box-body">
+                            <br>
+
+                            <!-- Input para Id del producto -->
+                            <div class="form-group">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
+                                    <input type="number" class="form-control input-lg quitar-color" name="eliminarId" id="eliminarId" placeholder="Id del producto" required>
+                                </div>
+                            </div>
+                            <!-- Input para Id del producto-->
+
+                            <div class="form-group ">
+                                <div class="input-group col-xs-12 col-md-8 margin-auto">
+                                    <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Eliminar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $eliminarProducto = new ControladorProductos();
+                    $eliminarProducto->ctrEliminarProducto();
+                    ?>
+                </form>
+            </div>
         </div>
     </div>
 
