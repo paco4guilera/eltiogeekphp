@@ -45,7 +45,7 @@ class ControladorUsuarios
                 echo '<script>
                     swal.fire({
                         icon:"error",
-                        title: "Mascota no registrada con éxito",
+                        title: "Usuario no registrada con éxito",
                         showConfirmButton: true,
                         confirmButtonText: "Cerrar",
                         closeOnConfirm: false 
