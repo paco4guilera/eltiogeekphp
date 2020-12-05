@@ -164,7 +164,7 @@ session_start();
             </div>
 
         </div>
-    </div>
+    </div>/
     <!--
     /*=============================================
     Formulario sing up                             
