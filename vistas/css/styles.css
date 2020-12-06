@@ -171,7 +171,11 @@ h4 {
     border-style: none;
     border-width: 0;
     border-color: #00000000;
-    text-rendering: unset;
+}
+.boton-verde:hover {
+    color: white;
+    text-decoration: none;
+    background-color: #008f00;
 }
 .boton-verde-login {
     font-size: 1.8rem;
@@ -857,4 +861,12 @@ body > main > div > div.imagen > img {
         margin: 0 auto;
         width: 112.9px;
     }
+}
+.total {
+    display: flex;
+    justify-content: flex-end;
+    margin: auto;
+}
+.total h2 {
+    margin-right: 10rem;
 }

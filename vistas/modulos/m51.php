@@ -2,7 +2,7 @@
         <br />
         <div class="contenido-post">
             <div class="imagen-post">
-                <img src="vistas/img/plantilla/m51.jpg" alt="poco x3" />
+                <img src="vistas/img/productos/Galaxy A51/m51.jpg" alt="m51" />
             </div>
             <div class="texto-nosotros">
                 <blockquote>Galaxy M51</blockquote>

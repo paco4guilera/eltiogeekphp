@@ -2,7 +2,7 @@
         <br />
         <div class="contenido-post">
             <div class="imagen-post">
-                <img src="vistas/img/plantilla/pocox3.jpg" alt="poco x3" />
+                <img src="vistas/img/productos/Poco X3 NFC/pocox3.jpg" alt="poco x3" />
             </div>
             <div class="texto-nosotros">
                 <blockquote>Poco X3 NFC</blockquote>

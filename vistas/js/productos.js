@@ -1,5 +1,6 @@
 $(document).on("click", ".mostrar-producto", function () { 
-    var nombreProducto = $(this).attr("nombreProducto");
-        window.location = "index.php?ruta=producto&nombreProducto="+nombreProducto;
+    var idProducto = $(this).attr("idProducto");
+        window.location = "index.php?ruta=producto&idProducto="+idProducto;
     
 })
+
