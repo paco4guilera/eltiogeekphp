@@ -69,7 +69,7 @@ class ControladorUsuarios
             $item = "usuario_correo";
             $valor = $_POST["logEmail"];
             $respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
-            var_dump($respuesta["usuario_correo"]);
+            //var_dump($respuesta["usuario_correo"]);
             if (
                 $respuesta["usuario_correo"] == $_POST["logEmail"] &&
                 //$respuesta["usuario_password"] == $encriptar

@@ -11,6 +11,12 @@ class ControladorProductos
         $respuesta = ModeloProductos::MdlMostrarProductos($tabla, $categoria);
         return $respuesta;
     }
+    static public function ctrMostrarCarrito($email)
+    {
+        $tabla = "carrito";
+        $respuesta = ModeloProductos::MdlMostrarCarrito($tabla, $email);
+        return $respuesta;
+    }
     static public function ctrMostrarProductosTabla()
     {
         $tabla = "productos";

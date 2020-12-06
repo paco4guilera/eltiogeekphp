@@ -12,7 +12,7 @@
                     <?php
                     if (isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok" && $_SESSION["rol"] == "cliente") {
                         echo '
-                    <a href="salir" class="btn-header">
+                    <a href="carrito" class="btn-header">
                         Carrito
                     </a>
                     <a href="salir" class="btn-header">

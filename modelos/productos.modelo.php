@@ -12,6 +12,14 @@ class ModeloProductos
         return $stmt->fetchAll();
         $stmt = null;
     }
+    static public function mdlMostrarCarrito($tabla, $email)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE usuario_correo = :usuario_correo");
+        $stmt->bindParam(":usuario_correo", $email, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetchAll();
+        $stmt = null;
+    }
     static public function mdlMostrarProductosTabla($tabla)
     {
         $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla ORDER BY producto_categoria");
@@ -19,10 +27,10 @@ class ModeloProductos
         return $stmt->fetchAll();
         $stmt = null;
     }
-    static public function mdlMostrarProducto($tabla, $nombre)
+    static public function mdlMostrarProducto($tabla, $id)
     {
-        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE producto_nombre = :producto_nombre");
-        $stmt->bindParam(":producto_nombre", $nombre, PDO::PARAM_STR);
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE producto_id = :producto_id");
+        $stmt->bindParam(":producto_id", $id, PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetch();
         $stmt = null;
@@ -105,6 +113,51 @@ class ModeloProductos
             return "error";
         }
         //$stmt->close();
+        $stmt = null;
+    }
+    static function mdlAgregarCarrito($tabla, $correoUsuario, $producto, $precio)
+    {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (usuario_correo,
+                                                                producto_nombre,
+                                                                producto_precio)
+            VALUES( :usuario_correo,
+                    :producto_nombre,
+                    :producto_precio)");
+        $stmt->bindParam(":usuario_correo", $correoUsuario, PDO::PARAM_STR);
+        $stmt->bindParam(":producto_nombre", $producto, PDO::PARAM_STR);
+        $stmt->bindParam(":producto_precio", $precio, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+        $stmt = null;
+    }
+    static function mdlNuevaVenta($tabla, $correoUsuario, $ventaFecha, $ventaTotal)
+    {
+        $stmt = Conexion::conectar()->prepare("INSERT INTO $tabla (usuario_correo,venta_fecha,venta_total)
+                                                VALUES (:usuario_correo,
+                                                :venta_fecha,
+                                                :venta_total)");
+        $stmt->bindParam(":usuario_correo", $correoUsuario, PDO::PARAM_STR);
+        $stmt->bindParam(":venta_fecha", $ventaFecha, PDO::PARAM_STR);
+        $stmt->bindParam(":venta_total", $ventaTotal, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
+        $stmt = null;
+    }
+    static function mdlVaciarCarrito($tabla, $correoUsuario)
+    {
+        $stmt = Conexion::conectar()->prepare("DELETE FROM $tabla WHERE usuario_correo=:usuario_correo");
+        $stmt->bindParam(":usuario_correo", $correoUsuario, PDO::PARAM_STR);
+        if ($stmt->execute()) {
+            return "ok";
+        } else {
+            return "error";
+        }
         $stmt = null;
     }
 }

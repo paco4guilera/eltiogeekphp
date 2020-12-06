@@ -2,7 +2,7 @@
         <br />
         <div class="contenido-post">
             <div class="imagen-post">
-                <img src="vistas/img/plantilla/rn9s.jpg" alt="rn9 s" />
+                <img src="vistas/img/productos/Redmi note 9S/rn9s.jpg" alt="rn9s" />
             </div>
             <div class="texto-nosotros">
                 <blockquote>Redmi note 9S</blockquote>

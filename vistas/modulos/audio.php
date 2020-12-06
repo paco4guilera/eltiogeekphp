@@ -14,7 +14,7 @@
         foreach ($productos as $key => $value) {
             /* En el a, poner página dinámica para la compra del producto */
             echo '
-                <a class="mostrar-producto" role="button" nombreProducto="' . $value["producto_nombre"] . '">
+                <a class="mostrar-producto" role="button" idProducto="' . $value["producto_id"] . '">
                     <div class="card">
                         <img src="' . $value["producto_foto"] . '" alt="no hay imagen disponible" />
                         <h4>' . $value["producto_nombre"] . '</h4>
