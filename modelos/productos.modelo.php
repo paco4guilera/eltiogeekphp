@@ -35,6 +35,14 @@ class ModeloProductos
         return $stmt->fetch();
         $stmt = null;
     }
+    static public function mdlValidarProducto($tabla, $nombre)
+    {
+        $stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE producto_nombre = :producto_nombre");
+        $stmt->bindParam(":producto_nombre", $nombre, PDO::PARAM_STR);
+        $stmt->execute();
+        return $stmt->fetch();
+        $stmt = null;
+    }
     static public function mdlEditarProducto($tabla, $datos)
     {
         $stmt = Conexion::conectar()->prepare("UPDATE $tabla

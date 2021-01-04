@@ -195,37 +195,6 @@
                                 </div>
                             </div><!-- Input para el Inventario-->
 
-                            <!-- Input para el descripción --
-                            <div class="form-group">
-                                <div class="input-group col-xs-12 col-md-8 margin-auto">
-                                    <span class="input-group-addon"><i class="fas fa-file-alt"></i></span>
-                                    <textarea class="form-control input-lg" name="editarDescripcion" placeholder="Descripción" required></textarea>
-                                </div>
-                            </div><!-- Input para el descripción -->
-
-                            <!-- <!-- Input para el tipo 
-                            <div class="form-group">
-                                <div class="input-group col-xs-12 col-md-8 margin-auto ">
-                                    <span class="input-group-addon"><i class="fa fa-th"></i></span>
-                                    <select class="form-control input-lg no-line-height" name="nuevaCategoria">
-                                        <option value="">Categoria</option>
-                                        <option value="Celulares">Celulares</option>
-                                        <option value="Computacion">Computacion</option>
-                                        <option value="Audio">Audio</option>
-                                        <option value="Televisores">Televisores</option>
-                                        <option value="Gadgets">Gadgets</option>
-                                    </select>
-                                </div>
-                            </div><!-- Input para el tipo -->
-
-                            <!-- <div class="form-group">
-                                <div class="panel panel-imagen centrar-texto">SUBIR IMAGEN</div>
-                                <div class="margin-auto padding-5rem"><input type="file" class="nuevaFoto margin-0" name="editarFoto"></div>
-                                <p class="help-block centrar-texto">Peso máximo de la imagen 2MB</p>
-                                <div class="centrar-texto"><img src="vistas/img/productos/default/anonymous.png" class="img-thumbnail previsualizar" width="100px"></div>
-                                <br>
-                            </div> -->
-
                             <div class="form-group ">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">
                                     <button type="submit" class="boton-verde boton-verde-login col-xs-12 ">Guardar</button>
@@ -258,14 +227,24 @@
                         <div class="box-body">
                             <br>
 
-                            <!-- Input para Id del producto -->
-                            <div class="form-group">
-                                <div class="input-group col-xs-12 col-md-8 margin-auto">
-                                    <span class="input-group-addon"><i class="fa fa-product-hunt"></i></span>
-                                    <input type="number" class="form-control input-lg quitar-color" name="eliminarId" id="eliminarId" placeholder="Id del producto" required>
+                            <!-- Input para el producto -->
+                            <div class="form-group search-combo">
+                                <div class="input-group search-combo">
+                                    <span class="input-group-addon search-combo"><i class="fas fa-bone"></i></span>
+                                    <select class="form-control combo-search input-lg search-combo texto-combo" style="width: 100%" name="eliminarId" id="eliminarId">
+                                        <option class="texto-combo" value="">Selecciona El Producto</option>
+                                        <?php
+                                        $item = null;
+                                        $valor = null;
+                                        $productos = ControladorProductos::ctrMostrarProductosTabla();
+                                        foreach ($productos as $key => $value) {
+
+                                            echo '<option value="' . $value["producto_id"] . '">' . $value["producto_nombre"] . '</option>';
+                                        }
+                                        ?>
+                                    </select>
                                 </div>
-                            </div>
-                            <!-- Input para Id del producto-->
+                            </div><!-- Input para el producto -->
 
                             <div class="form-group ">
                                 <div class="input-group col-xs-12 col-md-8 margin-auto">

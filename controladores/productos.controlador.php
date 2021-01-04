@@ -64,6 +64,18 @@ class ControladorProductos
             }
         }
     }
+    static public function ctrValidarProducto($nombre)
+    {
+        $tabla = "productos";
+        $respuesta = ModeloProductos::mdlValidarProducto($tabla, $nombre);
+        return $respuesta;
+    }
+    static public function ctrValidarProductoID($id)
+    {
+        $tabla = "productos";
+        $respuesta = ModeloProductos::mdlMostrarProducto($tabla, $id);
+        return $respuesta;
+    }
     static public function ctrEliminarProducto()
     {
         if (isset($_POST["eliminarId"])) {

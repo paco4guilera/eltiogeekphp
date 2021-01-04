@@ -77,6 +77,7 @@ class ControladorUsuarios
             ) {
                 $_SESSION["iniciarSesion"] = "ok";
                 $_SESSION["email"] = $respuesta["usuario_correo"];
+                $_SESSION["nombre"] = $respuesta["usuario_nombre"];
                 $_SESSION["rol"] = $respuesta["usuario_rol"];
                 if ($_SESSION["rol"] == "admin") {
                     echo '<script>

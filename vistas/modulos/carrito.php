@@ -24,7 +24,10 @@ if ($_SESSION["iniciarSesion"] != "ok") {
                 $email = $_SESSION["email"];
                 $productos = ControladorProductos::ctrMostrarCarrito($email);
                 $total = 0;
+                $nombresProductos;
+                $preciosProductos;
                 foreach ($productos as $key => $value) {
+
                     echo '
                         <tr>
                             <td>' . $value["producto_nombre"] . '</td>
@@ -50,9 +53,10 @@ if ($_SESSION["iniciarSesion"] != "ok") {
         ?>
         <div class="pull-right">
             <?php
-            echo '
+            /*  echo '
                 <a href="index.php?ruta=carrito&total=' . $total . '" class="boton-verde boton-carrito">PAGAR AHORA</a>
-                ';
+                '; */
+            echo '<button class="btn boton-verde btn-vender" total="' . $total . '">Venta Boton</button> ';
             ?>
         </div>
         <?php

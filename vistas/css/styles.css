@@ -870,3 +870,9 @@ body > main > div > div.imagen > img {
 .total h2 {
     margin-right: 10rem;
 }
+.search-combo {
+    max-width: 100%;
+}
+.texto-combo {
+    font-size: 18px !important;
+}
