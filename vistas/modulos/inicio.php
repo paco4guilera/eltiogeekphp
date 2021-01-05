@@ -39,7 +39,7 @@
     </main>
 
     <script>
-        let slideIndex = 1;
+        var slideIndex = 1;
         showSlides(slideIndex);
 
         // Next/previous controls
@@ -53,9 +53,9 @@
         }
 
         function showSlides(n) {
-            let i;
-            let slides = document.getElementsByClassName("mySlides");
-            let dots = document.getElementsByClassName("dot");
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
             if (n > slides.length) {
                 slideIndex = 1;
             }
