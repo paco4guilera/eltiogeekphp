@@ -230,7 +230,7 @@
                             <!-- Input para el producto -->
                             <div class="form-group search-combo">
                                 <div class="input-group search-combo">
-                                    <span class="input-group-addon search-combo"><i class="fas fa-bone"></i></span>
+                                    <span class="input-group-addon search-combo"><i class="fa fa-product-hunt"></i></span>
                                     <select class="form-control combo-search input-lg search-combo texto-combo" style="width: 100%" name="eliminarId" id="eliminarId">
                                         <option class="texto-combo" value="">Selecciona El Producto</option>
                                         <?php
@@ -270,7 +270,7 @@
                 <form role="form" method="post" enctype="multipart/form-data">
                     <div class="modal-header" style="background:#007700; color:white">
                         <button type=" button" class="close" data-dismiss="modal">&times;</button>
-                        <h4 class="modal-title centrar-texto">Nuevo Producto</h4>
+                        <h4 class="modal-title centrar-texto">Editar Producto</h4>
                     </div>
                     <div class="modal-body back-grey">
                         <div class="box-body">
