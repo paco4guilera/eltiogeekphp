@@ -53,10 +53,9 @@ if ($_SESSION["iniciarSesion"] != "ok") {
         ?>
         <div class="pull-right">
             <?php
-            /*  echo '
+            echo '
                 <a href="index.php?ruta=carrito&total=' . $total . '" class="boton-verde boton-carrito">PAGAR AHORA</a>
-                '; */
-            echo '<button class="btn boton-verde btn-vender" total="' . $total . '">Venta Boton</button> ';
+                ';
             ?>
         </div>
         <?php
@@ -64,6 +63,7 @@ if ($_SESSION["iniciarSesion"] != "ok") {
         {
             $tabla = "ventas";
             $correoUsuario = $_SESSION["email"];
+            $nombreUsuario = $_SESSION["nombre"];
             $total = $_GET["total"];
             date_default_timezone_set('America/Mexico_City');
             $fecha = date('Y-m-d');
@@ -71,10 +71,7 @@ if ($_SESSION["iniciarSesion"] != "ok") {
             $fechaActual = $fecha . ' ' . $hora;
             $venta = ModeloProductos::mdlNuevaVenta($tabla, $correoUsuario, $fechaActual, $total);
             if ($venta == "ok") {
-                $tablas = "carrito";
-                $carrito = ModeloProductos::mdlVaciarCarrito($tablas, $correoUsuario);
-                if ($carrito == "ok") {
-                    echo '<script>
+                echo '<script>
                     swal.fire({
                         icon:"success",
                         title: "Venta realizada con éxito",
@@ -83,25 +80,11 @@ if ($_SESSION["iniciarSesion"] != "ok") {
                         closeOnConfirm: false 
                     }).then((result)=>{
                         if(result.value){
-                            window.location="carrito";
+                            window.open("extensiones/tcpdf/pdf/factura.php?total=' . $total . '&cliente=' . $correoUsuario . '&fecha=' . $fechaActual . '&nombre=' . $nombreUsuario . '", "_blank");
+                            window.location="inicio";
                         }
                     });
                     </script>';
-                } else {
-                    echo '<script>
-                    swal.fire({
-                        icon:"error",
-                        title: "Carrito no fue vaciado",
-                        showConfirmButton: true,
-                        confirmButtonText: "Cerrar",
-                        closeOnConfirm: false 
-                    }).then((result)=>{
-                        if(result.value){
-                            window.location="carrito";
-                        }
-                    });
-                    </script>';
-                }
             } else {
                 echo '<script>
                     swal.fire({
